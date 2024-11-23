@@ -9,6 +9,48 @@
     </head>
     <body>
        <h2>PAGINA DE INICIO</h2>
-       <p th:text="Ejemplo"></p>
+       <p th:text="${mensaje}"></p>
+       <p th:text="${dato}"></p>
+
+       <hr>
+            <h2>Datos del usuario</h2>
+           <b>ID: </b><span th:text="${user.id}"></span><br>
+           <b>Nombre: </b><span th:text="${user.name}"></span><br>
+           <b>Apellido: </b><span th:text="${user.last_name}"></span><br>
+           <b>Role: </b><span th:text="${user.role}"></span><br>
+           <b>Email: </b><span th:text="${user.email}"></span><br>
+           <b>Telefono: </b><span th:text="${user.phone}"></span><br>
+           <b>Status: </b><span th:text="${user.status}"></span><br>
+           <b>Password: </b><span th:text="${user.password}"></span><br>
+
+        <hr>
+        <h4>Lista de usuarios</h4>
+        <div th:if="${usuarios != null} and ${usuarios.size() > 0}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>Status</th>
+                    <th>Password</th>
+                </tr>
+                <tr th:each="user : ${usuarios}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.last_name}"></td>
+                    <td th:text="${user.role}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.phone}"></td>
+                    <td th:text="${user.status}"></td>
+                    <td th:text="${user.password}"></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${usuarios == null} or ${usuarios.size() == 0}">
+                la lista de usuarios es vacia
+        </div>
     </body>
 </html>
