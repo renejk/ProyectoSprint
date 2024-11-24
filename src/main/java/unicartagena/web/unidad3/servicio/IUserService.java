@@ -10,8 +10,8 @@ public interface IUserService {
 
     public void guardarUsuario(User user);
 
-    public User obtenerUsuario(String id);
+    public User obtenerUsuario(User user);
 
-    public void eliminarUsuario(String id);
+    public void eliminarUsuario(User id);
 
 }

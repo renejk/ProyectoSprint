@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" 
+ xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Datos del usuario</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>[[#{usuario.formulario}]]</h1> 
+    <a th:href="@{/}">[[#{accion.regresar}]]</a>
+    <br/>
+    <form th:action="@{/guardar}" th:object="${user}" method="post">
+        <br/>
+        <label for="id" th:text="#{usuario.id}">ID</label>
+        <input type="text" name="id"  th:field="*{id}"/>
+        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">[[#{NotEmpty.user.id}]]</span>
+        <br/>
+        <label for="name" th:text="#{usuario.nombre}"></label>
+        <input type="text" name="name" th:field="*{name}"/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">[[#{NotEmpty.user.name}]]</span>
+        <br/>
+        <label for="last_name" th:text="#{usuario.apellido}"></label>
+        <input type="text" name="last_name" th:field="*{last_name}"/>       
+        <br/>
+        <label for="role" th:text="#{usuario.role}"></label>
+        <input type="text" name="role" th:field="*{role}"/>
+        <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}">[[#{NotEmpty.user.role}]]</span>
+        <br/>
+        <label for="email" th:text="#{usuario.email}"></label>
+        <input type="text" name="email" th:field="*{email}"/>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">[[#{NotEmpty.user.email}]]</span>
+        <br/>
+        <label for="phone" th:text="#{usuario.telefono}"></label>
+        <input type="text" name="phone" th:field="*{phone}"/>
+        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">[[#{NotEmpty.user.phone}]]</span>
+        <br/>
+        <label for="status" th:text="#{usuario.status}"></label>
+        <input type="text" name="status" th:field="*{status}"/>
+        <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}">[[#{NotEmpty.user.status}]]</span>
+        <br/>
+        <label for="password" th:text="#{usuario.password}"></label>
+        <input type="text" name="password" th:field="*{password}"/>
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">[[#{NotEmpty.user.password}]]</span>
+        <br/>
+        <label for="created_at" th:text="#{usuario.creado}"></label>
+        <input type="text" name="created_at" th:field="*{created_at}"/>
+        <span th:if="${#fields.hasErrors('created_at')}" th:errors="*{created_at}">[[#{NotEmpty.user.created_at}]]</span>
+        <br/>
+        <input type="reset" th:value="#{accion.limpiar}"/> &nbsp; &nbsp; &nbsp;
+        <input type="submit" name="guardar" th:value="#{accion.guardar}"/>
+    </form>
+    
+</body>
+</html>

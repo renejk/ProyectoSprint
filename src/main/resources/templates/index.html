@@ -8,7 +8,11 @@
         
     </head>
     <body>
+
+        <header th:replace="plantillas/partes :: header"></header>
        <h2>PAGINA DE INICIO</h2>
+
+        <a th:href="@{/agregar}">Agregar Usuario</a>
 
        <h4>Lista de usuarios</h4>
 
@@ -16,14 +20,16 @@
        <div th:if="${users != null and !users.empty}">
          <table border="1">
            <tr>
-             <th>ID</th>
-             <th>Nombre</th>
-             <th>Apellido</th>
-             <th>Role</th>
-             <th>Email</th>
-             <th>Telefono</th>
-             <th>Status</th>
-             <th>Creado</th>
+             <th>[[#{usuario.id}]]</th>
+             <th>[[#{usuario.nombre}]]</th>
+             <th>[[#{usuario.apellido}]]</th>
+             <th>[[#{usuario.role}]]</th>
+             <th>[[#{usuario.email}]]</th>
+             <th>[[#{usuario.telefono}]]</th>
+             <th>[[#{usuario.status}]]</th>
+             <th>[[#{usuario.creado}]]</th>
+             <th>[[#{accion.editar}]]</th>
+             <th>[[#{accion.eliminar}]]</th>
            </tr>
            <tr th:each="user : ${users}">
              <td th:text="${user.id}"></td>
@@ -34,12 +40,15 @@
              <td th:text="${user.phone}"></td>
              <td th:text="${user.status}"></td>
              <td th:text="${user.created_at}"></td>
+             <td><a th:href="@{/editar/}+${user.id}" th:text="#{accion.editar}"></a></td>
+             <td><a th:href="@{/eliminar/}+${user.id}" th:text="#{accion.eliminar}"></a></td>
            </tr>
          </table>
        </div>
        <div th:if="${users == null or users.empty}">
-        La lista esta vacia
-       </div>
+          <h2>[[#{usuario.lista-vacia}]]</h2>
+       </div> <br/> <hr>
+       <footer th:replace="plantillas/partes :: footer"></footer>
      
     </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de App web MVC con Spring Boot</title>
+</head>
+<body>
+        <header th:fragment="header">
+            <h1 th:text="#{plantilla.titulo}"> El titulo</h1>
+        </header>
+
+        <footer>
+            <span th:text="#{plantilla.pie}">El pie</span>
+            <p>
+                <a href="https://github.com/renejk">Github</a>
+            </p>
+        </footer>
+    
+</body>
+</html>
