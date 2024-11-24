@@ -17,7 +17,7 @@ import unicartagena.web.unidad3.servicio.IUserService;
 
 @Controller
 @Slf4j
-public class ControladorInicio {
+public class UserController {
 
     @Autowired
     IUserService userService;

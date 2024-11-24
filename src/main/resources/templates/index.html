@@ -29,7 +29,8 @@
              <th>[[#{usuario.status}]]</th>
              <th>[[#{usuario.creado}]]</th>
              <th>[[#{accion.editar}]]</th>
-             <th>[[#{accion.eliminar}]]</th>
+             <th>[[#{accion.eliminar}]]</th>\
+             <th>[[#{accion.ver-eventos}]]</th>
            </tr>
            <tr th:each="user : ${users}">
              <td th:text="${user.id}"></td>
@@ -40,8 +41,10 @@
              <td th:text="${user.phone}"></td>
              <td th:text="${user.status}"></td>
              <td th:text="${user.created_at}"></td>
+             <td><a th:href="@{/eventos/}+${user.id}" th:text="#{accion.ver-eventos}"></a></td>
              <td><a th:href="@{/editar/}+${user.id}" th:text="#{accion.editar}"></a></td>
              <td><a th:href="@{/eliminar/}+${user.id}" th:text="#{accion.eliminar}"></a></td>
+
            </tr>
          </table>
        </div>
