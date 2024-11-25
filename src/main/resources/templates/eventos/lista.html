@@ -7,5 +7,43 @@
 </head>
 <body>
     <header th:replace="plantillas/partes :: header-eventos"></header>
+
+    <a th:href="@{/eventos/agregar/} + ${user.id}">[[#{evento.crear}]]</a>
+
+    <hr>
+    <div th:if="${eventos != null and !eventos.empty}">
+        <table border="1">
+            <tr>
+                <th>[[#{evento.id}]]</th>
+                <th>[[#{evento.name}]]</th>
+                <th>[[#{evento.date}]]</th>
+                <th>[[#{evento.attendees}]]</th>
+                <th>[[#{evento.duration}]]</th>
+                <th>[[#{accion.editar}]]</th>
+                <th>[[#{accion.eliminar}]]</th>
+            </tr>
+            <tr th:each="evento : ${eventos}">
+                <td th:text="${evento.id}"></td>
+                <td th:text="${evento.name}"></td>
+                <td th:text="${evento.event_date}"></td>
+                <td th:text="${evento.attendees}"></td>
+                <td th:text="${evento.duration}"></td>
+                
+
+                <td>
+                    <a th:href="@{/eventos/editar/}+${evento.id}" th:text="#{accion.editar}"></a>
+                  
+                </td>
+                <td>
+                    <a th:href="@{/eventos/eliminar/}+${evento.id}" th:text="#{accion.eliminar}"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${eventos == null or eventos.empty}">
+        <h2>[[#{evento.lista-vacia}]]</h2>
+    </div>
+    <br/>
+    <hr>
 </body>
 </html>

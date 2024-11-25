@@ -8,6 +8,6 @@ import unicartagena.web.unidad3.modelo.Event;
 
 public interface IEventCrud extends CrudRepository<Event, String> {
 
-    @Query("select e from Event e where e.id = ?1")
-    public Iterable<Event> findAllByUserId(@Param("user") String id);
+    @Query("from Event e where e.user.id = ?1")
+    public Iterable<Event> findAllByUserId(@Param("id") String id);
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del evento</title>
+</head>
+<body>
+    <h1>[[#{evento.formulario}]]</h1>
+    <br/>
+    <form th:action="@{/eventos/guardar}" th:object="${event}" method="post">
+        <br/>
+        <label for="id" th:text="#{evento.id}">ID</label>
+        <input type="text" name="id"  th:field="*{id}" required/>
+        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">[[#{NotEmpty.evento.id}]]</span>
+        <br/>
+        <label for="name" th:text="#{evento.name}"></label>
+        <input type="text" name="name" th:field="*{name}" required/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">[[#{NotEmpty.evento.name}]]</span>
+        <br/>
+        <label for="event_date" th:text="#{evento.date}"></label>
+        <input type="text" name="event_date" th:field="*{event_date}" required/>
+        <span th:if="${#fields.hasErrors('event_date')}" th:errors="*{event_date}">[[#{NotEmpty.evento.date}]]</span>
+        <br/>
+        <label for="attendees" th:text="#{evento.attendees}"></label>
+        <input type="text" name="attendees" th:field="*{attendees}" required/>
+        <span th:if="${#fields.hasErrors('attendees')}" th:errors="*{attendees}">[[#{NotEmpty.evento.attendees}]]</span>
+        <br/>
+        <label for="duration" th:text="#{evento.duration}"></label>
+        <input type="text" name="duration" th:field="*{duration}" required/>
+        <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">[[#{NotEmpty.evento.duration}]]</span>
+        <br/>       
+        <label for="user" th:text="#{evento.user.id}"></label>
+        <input type="text" name="user" th:field="*{user.id}" disabled/>
+        <span th:if="${#fields.hasErrors('user')}" th:errors="*{user.id}">[[#{NotEmpty.evento.user}]]</span>
+        <br/>
+        <input type="reset" th:value="#{accion.limpiar}"/> &nbsp; &nbsp; &nbsp;
+        <input type="submit" name="guardar" th:value="#{accion.guardar}"/>
+
+    </form>
+    
+</body>
+</html>

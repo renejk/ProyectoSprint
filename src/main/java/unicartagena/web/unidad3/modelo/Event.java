@@ -34,6 +34,8 @@ public class Event implements Serializable {
     private String name;
     @NotEmpty
     private int attendees;
+    @NotEmpty()
+    private String duration;
     @NotEmpty
     private String event_date;
     // foreign key
