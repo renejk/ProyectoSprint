@@ -38,7 +38,7 @@ public class EventServiceImp implements IEventService {
     @Transactional
     @Override
     public void eliminarEvento(Event event) {
-        crud.delete(event);
+        crud.deleteById(event.getId());
     }
 
 }

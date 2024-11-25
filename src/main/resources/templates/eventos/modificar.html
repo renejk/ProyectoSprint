@@ -32,7 +32,7 @@ xmlns="http://www.w3.org/1999/xhtml">
         <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">[[#{NotEmpty.evento.duration}]]</span>
         <br/>       
         <label for="user" th:text="#{evento.user.id}"></label>
-        <input type="text" name="user" th:field="*{user.id}" disabled/>
+        <input type="text" name="user" th:field="*{user.id}" />
         <span th:if="${#fields.hasErrors('user')}" th:errors="*{user.id}">[[#{NotEmpty.evento.user}]]</span>
         <br/>
         <input type="reset" th:value="#{accion.limpiar}"/> &nbsp; &nbsp; &nbsp;

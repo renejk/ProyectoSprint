@@ -59,7 +59,7 @@ public class EventController {
     public String editar(Event event, Model model) {
         log.info("Invocando el metodo editar");
         Event eventSearch = eventService.obtenerEvento(event);
-        model.addAttribute("evento", eventSearch);
+        model.addAttribute("event", eventSearch);
         return "eventos/modificar";
     }
 

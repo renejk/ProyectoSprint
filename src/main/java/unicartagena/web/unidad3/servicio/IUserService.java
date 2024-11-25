@@ -12,6 +12,6 @@ public interface IUserService {
 
     public User obtenerUsuario(User user);
 
-    public void eliminarUsuario(User id);
+    public void eliminarUsuario(User user);
 
 }
